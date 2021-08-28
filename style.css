@@ -11,7 +11,6 @@ button {
     position: relative;
     display: grid;
     margin: auto;
-    margin-top: 40px;
 }
 .button--loading .button__text {
   visibility: hidden;
@@ -19,20 +18,30 @@ button {
 }
 
 .button--loading::after {
+   --border-width: 5px;
+    border-radius: 50%;
+      --mask: radial-gradient(
+        farthest-side, 
+        transparent calc(100% - var(--border-width) - 0.5px), 
+        #000 calc(100% - var(--border-width) + 0.5px)
+      );
+      -webkit-mask: var(--mask);
+              mask: var(--mask);
+  background: linear-gradient(to top, rgba(130,130,130, 1), rgba(130,130,130, 0.5)) 100% 0/50% 100% no-repeat,
+              linear-gradient(rgba(130,130,130, 0.5) 50%, transparent 95%) 0 0/50% 100% no-repeat;
     content: "";
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 21px;
+    height: 21px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
-    border: 4px solid transparent;
-    border-top-color: #00ff00;
-    border-radius: 50%;
     animation: button-loading-spinner 1s ease infinite;
 }
+
+
 @keyframes button-loading-spinner {
     from {
         transform: rotate(0turn);
@@ -50,7 +59,7 @@ button {
 .bros {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    align-items: center;
+    grid-auto-rows: 1fr;
 }
 div { 
     margin-top: 5px;
@@ -58,3 +67,60 @@ div {
     margin-left: 5px;
     margin-right: 5px;
 }
+
+
+.rollContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+	animation: fadeInOpacity 1s ease-in both;
+	animation-iteration-count: 1;
+	animation-duration: 0.5ssss;
+}
+
+
+@keyframes fadeInOpacity {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.bros div:nth-child(1) {
+	animation-delay: 0.4s;
+}
+.bros div:nth-child(2) {
+	animation-delay: 0.6s;
+}
+.bros div:nth-child(3) {
+	animation-delay: 0.8s;
+}
+.bros div:nth-child(4) {
+	animation-delay: 1s;
+}
+.bros div:nth-child(5) {
+	animation-delay: 1.2s;
+}
+.bros div:nth-child(6) {
+	animation-delay: 1.4s;
+}
+.bros div:nth-child(7) {
+	animation-delay: 1.6s;
+}
+.bros div:nth-child(8) {
+	animation-delay: 1.8s;
+}
+.bros div:nth-child(9) {
+	animation-delay: 2s;
+}
+.bros div:nth-child(10) {
+	animation-delay: 2.2s;
+}
+.bros div:nth-child(11) {
+	animation-delay: 2.4s;
+}
+
