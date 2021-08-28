@@ -75,7 +75,7 @@ div {
     flex-direction: column;
 	animation: fadeInOpacity 1s ease-in both;
 	animation-iteration-count: 1;
-	animation-duration: 0.5ssss;
+	animation-duration: 0.5s;
 }
 
 
