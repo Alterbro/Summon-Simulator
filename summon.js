@@ -17,14 +17,6 @@ async function rollgacha() {
     "4": servants_raw.filter(servant => servant.rarity == 4),
     "5": servants_raw.filter(servant => servant.rarity == 5),
 }
-weighted_rarity = {
-  "3": 40,
-  "4": 3,
-  "5": 1,
-  "3CE": 40,
-  "4CE": 12,
-  "5CE": 4
-}
   var result = '';
   var weighted_rarity = {};
     function weightedChoice(weighted_values){
@@ -47,7 +39,7 @@ async function generateRandomRareCard(essences, servants, rarity){
     var colors = {
     "3": "#AD8A56",
     "4": "#D7D7D7",
-    "5": "#AF9500"
+    "5": "#FFD933"
     }
     if (rarity.length > 1){
         cards = essences;
@@ -74,6 +66,15 @@ async function generateRandomRareCard(essences, servants, rarity){
     result = (await Promise.all(Array.from({length: len}, async () => await generateRandomRareCard(essences, servants, weightedChoice(weighted_rarity))))).join('');
     theButton.classList.remove("button--loading");
     return result;
+}
+
+  weighted_rarity = {
+    "3": 40,
+    "4": 3,
+    "5": 1,
+    "3CE": 40,
+    "4CE": 12,
+    "5CE": 4
 }
 
   var result = await rollCards(crafting_essences, servants, weighted_rarity, 11);
