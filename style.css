@@ -71,6 +71,7 @@ div {
 
 .rollContainer {
     display: flex;
+    text-align: center;
     align-items: center;
     flex-direction: column;
 	animation: fadeInOpacity 1s ease-in both;
